@@ -13,6 +13,7 @@ const Enemy = function(startx,starty) {
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
+
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
@@ -30,7 +31,7 @@ const Player = function() {
 
   this.sprite = "images/char-cat-girl.png"
   this.x = 200;
-  this.y = 400;
+  this.y = 380;
 };
 
 Player.prototype.update = function(dt) {
@@ -41,10 +42,18 @@ Player.prototype.render = function () {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-Player.prototype.handleInput = function() {
-
-}
-
+Player.prototype.handleInput = function(keyCode) {
+  switch (keyCode)  {
+    case 'left': this.x -= 101;
+      break;
+    case 'up': this.y -= 83;
+      break;
+    case 'right': this.x += 101;
+      break;
+    case 'down': this.y += 83;
+      break;
+  }
+};
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
