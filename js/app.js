@@ -6,6 +6,8 @@ const Enemy = function() {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
+    this.x = 10;
+    this.y = 10;
 };
 
 // Update the enemy's position, required method for game
@@ -27,6 +29,8 @@ Enemy.prototype.render = function() {
 const Player = function() {
 
   this.sprite = "images/char-cat-girl.png"
+  this.x = 50;
+  this.y = 50;
 };
 
 Player.prototype.update = function(dt) {
@@ -45,7 +49,9 @@ Player.prototype.handleInput = function() {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
-const allEnemies = [];
+const enm1 = new Enemy();
+
+const allEnemies = [enm1];
 const player = new Player();
 
 // This listens for key presses and sends the keys to your
