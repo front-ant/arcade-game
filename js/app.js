@@ -40,7 +40,12 @@ const Player = function() {
 };
 
 Player.prototype.update = function(dt) {
-
+  for (const enm of allEnemies) {
+    if (this.x < enm.x+30 && this.x > enm.x-30 && this.y < enm.y+30 && this.y > enm.y-30) {
+      this.x = 200;
+      this.y = 380;
+    }
+  }
 };
 
 Player.prototype.render = function () {
